@@ -6,20 +6,34 @@ using UnityEngine;
 public class TileMap : MonoBehaviour
 {
      public TileType[] tileTypes;
-     int[,] tiles;
+     
+     int[,] tiles; 
+     int mapSizeX = 10;
+      int mapSizeY = 10;
+     private void Start() {
 
-     private int mapSizeX = 10;
-     private int mapSizeY = 10;
+          GenerateMapData();
+          GenerateMapVisual();
+     }
 
-     private void Start()
+     void GenerateMapData()
      {
-          tiles = new int[mapSizeX,mapSizeY];
-
-          for (int x = 0; x < mapSizeX; x++) {
-               for (int y = 0; y < mapSizeY; y++)
+          tiles = new int[mapSizeX, mapSizeY];
+          int x, y;
+          
+          for ( x = 0; x < mapSizeX; x++) {
+               for ( y = 0; y < mapSizeY; y++)
                {
                     tiles[x, y] = 0;
                }
+          }
+
+          for ( x = 3; x <= 5; x++) {
+               for ( y = 0; y < 4; y++)
+               {
+                    tiles[x, y] = 1;
+               }
+               
           }
 
           tiles[4, 4] = 2;
@@ -32,8 +46,7 @@ public class TileMap : MonoBehaviour
           tiles[4, 6] = 2;
           tiles[8, 5] = 2;
           tiles[8, 6] = 2;
-
-          GenerateMapVisual();
+          
      }
 
      void GenerateMapVisual() {
