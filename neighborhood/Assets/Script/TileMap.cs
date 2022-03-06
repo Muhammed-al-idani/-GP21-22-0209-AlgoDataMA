@@ -51,7 +51,20 @@ public class TileMap : MonoBehaviour
           
      }
 
-     void GenerateMapVisual() {
+     class Node
+     {
+          public List<Node> neighbours;
+
+          public Node()
+          {
+               neighbours = new List<Node>();
+          }
+     }
+
+     
+
+     void GenerateMapVisual()
+     {
           for (int x = 0; x < mapSizeX; x++) {
                for (int y = 0; y < mapSizeY; y++)
                {
@@ -77,6 +90,8 @@ public class TileMap : MonoBehaviour
           selectedUnit.GetComponent<Unit>().tileX = x;
           selectedUnit.GetComponent<Unit>().tileY = y;
           selectedUnit.transform.position = TileCoordToWorldCoord(x,y);
+          
+          
 
      }
 }
