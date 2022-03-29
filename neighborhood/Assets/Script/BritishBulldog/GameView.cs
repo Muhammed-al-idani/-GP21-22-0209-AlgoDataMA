@@ -13,7 +13,7 @@ public class GameView : MonoBehaviour
    {
       foreach (var boardPiece in this.boardPieces)
       {
-         Destroy(boardPiece);
+         Destroy(boardPiece.gameObject);
       }
       boardPieces.Clear();
 

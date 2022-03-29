@@ -29,7 +29,7 @@ public class State
         return player == goal;
     }
 
-    public IEnumerator<State> GetAdjacent()
+    public IEnumerable<State> GetAdjacent()
     {
         if (playerTurn)
         {
@@ -71,7 +71,7 @@ public class State
                     playerTurn = !playerTurn
                 };
             }
-            if (player.x < GridHeight-1)
+            if (player.y < GridHeight-1)
             {
                 yield return new State
                 {
@@ -124,7 +124,7 @@ public class State
                     playerTurn = !playerTurn
                 };
             }
-            if (enemy.x < GridHeight-1)
+            if (enemy.y < GridHeight-1)
             {
                 yield return new State
                 {
