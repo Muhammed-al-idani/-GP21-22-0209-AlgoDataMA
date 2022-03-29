@@ -18,8 +18,11 @@ public class TileMap : MonoBehaviour
 
      int mapSizeX = 10;
       int mapSizeY = 10;
-     private void Start() {
-
+     private void Start()
+     {
+          selectedUnit.GetComponent<Unit>().tileX = (int)selectedUnit.transform.position.x;
+          selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.y;
+          selectedUnit.GetComponent<Unit>().map=this;
           GenerateMapData();
           GeneratePathfindingGraph();
           GenerateMapVisual();
@@ -71,7 +74,7 @@ public class TileMap : MonoBehaviour
 
           public float DistanceTo(Node n) {
                if (n == null) {
-                    
+                    Debug.LogError("?");
                     
                }
                return Vector2.Distance(new Vector2(x, y), new Vector2(n.x, n.y));
