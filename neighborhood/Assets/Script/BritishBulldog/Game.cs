@@ -12,9 +12,4 @@ public class Game : MonoBehaviour
     {
         view.updateView(currentState);
     }
-
-    public bool IsEnemyWinState(State state)
-    {
-        return state.player == state.enemy;
-    }
 }
